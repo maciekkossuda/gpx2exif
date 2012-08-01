@@ -50,7 +50,7 @@ unless @fail
   else
     # constant zoom
     e.zoom = options[:zoom].to_i
-    e.renderer_options = {crop_enabled: true}
+    e.renderer_options = { :crop_enabled => true}
   end
 
   e.save(options[:output_file])

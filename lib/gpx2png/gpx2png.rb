@@ -19,7 +19,7 @@ module Gpx2png
     end
 
     def add(lat, lon)
-      @coords << { lat: lat, lon: lon }
+      @coords << { :lat => lat, :lon => lon }
     end
 
     attr_accessor :zoom, :color, :coords
@@ -157,7 +157,7 @@ module Gpx2png
             x_offset,
             y_offset
           )
-          
+
           puts "processed #{x - @tile_x_range.min}x#{y - @tile_y_range.min} (max #{@tile_x_range.max - @tile_x_range.min}x#{@tile_y_range.max - @tile_y_range.min})"
         end
       end

@@ -91,7 +91,7 @@ module Gpx2png
       y_distance = (bottom_right_corner[0] - top_left_corner[0])
       y = (TILE_HEIGHT.to_f * (y_offset / y_distance)).round
 
-      return { osm_title_coord: osm_tile_coord, pixel_offset: [x, y] }
+      return { :osm_title_coord => osm_tile_coord, :pixel_offset => [x, y] }
     end
 
     # Useful for calculating distance on output image

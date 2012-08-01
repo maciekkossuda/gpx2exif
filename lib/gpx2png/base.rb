@@ -12,7 +12,7 @@ module Gpx2png
     end
 
     def add(lat, lon)
-      @coords << { lat: lat, lon: lon }
+      @coords << { :lat => lat, :lon => lon }
     end
 
     attr_accessor :zoom, :color, :coords
