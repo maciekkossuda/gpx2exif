@@ -9,9 +9,11 @@ module GpxUtils
 
     def initialize
       @coords = Array.new
+      @timed = true
     end
 
     attr_reader :coords
+    attr_reader :timed
 
     def add_file(path)
       f = File.new(path)
@@ -29,6 +31,8 @@ module GpxUtils
           :alt => wpt.xpath('ele').children.first.to_s.to_f
         }
 
+        @timed = false if @timed and w[:time].nil?
+
         if self.class.coord_valid?(w[:lat], w[:lon], w[:alt], w[:time])
           a << w
         else
@@ -40,7 +44,7 @@ module GpxUtils
       f.close
 
       @coords += a
-      @coords = @coords.sort { |b, c| b[:time] <=> c[:time] }
+      @coords = @coords.sort { |b, c| b[:time] <=> c[:time] } if @timed
     end
 
     # Only import valid coords

@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'gpx2exif'
-require 'gpx2png/osm'
+require File.expand_path('../../lib/gpx2exif', __FILE__)
+require File.expand_path('../../lib/gpx2png/osm', __FILE__)
 require 'optparse'
+require 'pry'
 
 options = { }
 OptionParser.new do |opts|

@@ -201,9 +201,9 @@ module Gpx2png
           )
 
           @images << {
-            url: url,
-            x: x,
-            y: y
+            :url => url,
+            :x => x,
+            :y => y
           }
 
           puts "processed #{x - @tile_x_range.min}x#{y - @tile_y_range.min} (max #{@tile_x_range.max - @tile_x_range.min}x#{@tile_y_range.max - @tile_y_range.min})" if @verbose

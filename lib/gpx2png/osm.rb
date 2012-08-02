@@ -37,10 +37,10 @@ module Gpx2png
     def setup_renderer
       case @renderer
         when :chunky_png
-          require 'gpx2png/renderers/chunky_png_renderer'
+          require File.expand_path('../renderers/chunky_png_renderer', __FILE__)
           @r = ChunkyPngRenderer.new(@renderer_options)
         when :rmagick
-          require 'gpx2png/renderers/rmagick_renderer'
+          require File.expand_path('../renderers/rmagick_renderer', __FILE__)
           @r = RmagickRenderer.new(@renderer_options)
         else
           raise ArgumentError
