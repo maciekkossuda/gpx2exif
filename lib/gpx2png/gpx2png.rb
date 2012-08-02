@@ -2,6 +2,7 @@ require 'rubygems'
 require 'chunky_png'
 require 'net/http'
 require "uri"
+require 'gpx2png/osm'
 
 
 $:.unshift(File.dirname(__FILE__))
