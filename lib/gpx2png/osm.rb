@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'gpx2png/osm_base'
+require File.expand_path('../renderers/rmagick_renderer', __FILE__)
 
 $:.unshift(File.dirname(__FILE__))
 

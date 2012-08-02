@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'chunky_png'
 require 'net/http'
 require "uri"
 require 'gpx2png/osm'
@@ -29,12 +28,12 @@ module Gpx2png
       zoom = 15
       @coords.collect { |c|
         {
-          url: self.class.url(zoom, [c[:lat], c[:lon]]),
-          tile: self.class.convert(zoom, [c[:lat], c[:lon]]),
-          return: self.class.reverse_convert(zoom,
+          :url => self.class.url(zoom, [c[:lat], c[:lon]]),
+          :tile => self.class.convert(zoom, [c[:lat], c[:lon]]),
+          :return => self.class.reverse_convert(zoom,
                                              self.class.convert(zoom, [c[:lat], c[:lon]])
           ),
-          point: self.class.point_on_image(zoom, [c[:lat], c[:lon]])
+          :point => self.class.point_on_image(zoom, [c[:lat], c[:lon]])
         }
       }
     end
@@ -99,7 +98,7 @@ module Gpx2png
       y_distance = (bottom_right_corner[0] - top_left_corner[0])
       y = (TILE_HEIGHT.to_f * (y_offset / y_distance)).round
 
-      return { osm_title_coord: osm_tile_coord, pixel_offset: [x, y] }
+      return { :osm_title_coord => osm_tile_coord, :pixel_offset => [x, y] }
     end
 
 
@@ -144,10 +143,10 @@ module Gpx2png
           image = ChunkyPNG::Image.from_blob(blob)
 
           @images << {
-            url: url,
-            image: image,
-            x: x,
-            y: y
+            :url => url,
+            :image => image,
+            :x => x,
+            :y => y
           }
 
           # compose image
