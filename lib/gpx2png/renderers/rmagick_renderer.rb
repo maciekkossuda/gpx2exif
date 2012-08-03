@@ -8,21 +8,21 @@ module Gpx2png
     def initialize(_options = { })
       @options = _options || { }
       @color = @options[:color] || '#FF0000'
-      @width = @options[:width] || 3
+      @width = @options[:width] || 4
       @aa = @options[:aa] == true
       @opacity = @options[:opacity] || 1.0
-      @licence_string = "Map data OpenStreetMap (CC-by-SA 2.0)"
+      @licence_string = "Map data by OpenStreetMap (CC-by-SA 2.0) & TRAIL.PL"
       @crop_margin = @options[:crop_margin] || 50
       @crop_enabled = @options[:crop_enabled] == true
 
       @line = Magick::Draw.new
-      @line.stroke_antialias(@aa)
+      @line.stroke_antialias(true)
       @line.stroke(@color)
       @line.stroke_opacity(@opacity)
       @line.stroke_width(@width)
 
       @licence_text = Magick::Draw.new
-      @licence_text.text_antialias(@aa)
+      @licence_text.text_antialias(true)
       @licence_text.font_family('helvetica')
       @licence_text.font_style(Magick::NormalStyle)
       @licence_text.text_align(Magick::RightAlign)
