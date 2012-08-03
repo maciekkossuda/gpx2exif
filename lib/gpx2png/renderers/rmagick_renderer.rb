@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'RMagick'
+require 'rmagick'
 
 $:.unshift(File.dirname(__FILE__))
 
