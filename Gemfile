@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'rmagick'
+# gem 'rmagick'
 gem 'builder'
 gem 'mini_exiftool'
 gem 'nokogiri'
